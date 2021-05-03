@@ -116,5 +116,7 @@ public class PlayerActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
 
         startActivity(intent);
+
+        this.finish();
     }
 }
