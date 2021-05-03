@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void exitGame(View view) {
         final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
         alert.setTitle("APP");
         alert.setMessage("Do you want to close APP?");
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -38,12 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openViewPlay(final View view){
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, PlayerActivity.class);
-                startActivity(intent);
-            }
-        });
+        Intent intent = new Intent(MainActivity.this, PlayerActivity.class);
+        startActivity(intent);
     }
 }
