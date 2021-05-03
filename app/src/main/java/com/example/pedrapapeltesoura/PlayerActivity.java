@@ -74,18 +74,40 @@ public class PlayerActivity extends AppCompatActivity {
     @SuppressLint("ResourceType")
     public void play(View view){
 
+        //Metodo que coloca as imagens no vetor
         setRandomImages();
 
+        int rSorted = r.nextInt(randomImages.size());
+
+        //Pegando a imageView da escolha do App
         ImageView imgRes = (ImageView) findViewById(R.id.imgRes);
 
+        //Pegando a imageView da opção escolhida
         ImageView imgReq = (ImageView) findViewById(view.getId());
 
-        sorted = randomImages.get(r.nextInt(randomImages.size())).getImageId();
+        //Sorteando imageView da lista
+        sorted = randomImages.get(rSorted).getImageId();
 
+        //Alterando a imagem padrão pela imagem sorteada
         imgRes.setImageResource(sorted);
 
-        setTextResp(imgReq.getResources().getResourceEntryName(view.getId())+"");
+        String optReqName = imgReq.getResources().getResourceEntryName(view.getId()).toString();
+
+        String optResName = randomImages.get(rSorted).getOption().toString();
+
+        if(!(
+                (optResName.contains("imgPapel")   && optReqName.contains("imgPedra"))||
+                (optResName.contains("imgTesoura") && optReqName.contains("imgPapel"))||
+                (optResName.contains("imgPedra")   && optReqName.contains("imgTesoura"))
+        )) {
+            if (optResName.contains(optReqName))
+                setTextResp("Empate!");
+            else
+                setTextResp("Você Ganhou!");
+        }else
+            setTextResp("Você Perdeu!");
 
         setBtnVisible();
     }
+
 }
