@@ -51,6 +51,7 @@
         android:background="@android:drawable/ic_menu_close_clear_cancel"
         android:fontFamily="@font/archivo_black"
         android:layerType="software"
+        android:onClick="openStartScreen"
         android:textSize="18sp"
         android:typeface="monospace"
         app:layout_constraintBottom_toBottomOf="parent"
